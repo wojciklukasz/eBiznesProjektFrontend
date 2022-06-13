@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Layout} from "./components/Layout";
+import {MainPage} from "./components/MainPage";
+import {LoginSuccessful} from "./components/LoginSuccessful";
+import {LoginContextProvider} from "./contexts/LoginContext";
+import {LoginPage} from "./components/LoginPage";
+import {LogoutPage} from "./components/LogoutPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <LoginContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Layout/>}>
+                  <Route index element={<MainPage/>}/>
+                  <Route path='login' element={<LoginPage/>}/>
+                  <Route path='logout' element={<LogoutPage/>}/>
+                  <Route path='login/google/:token&:email' element={<LoginSuccessful/>}/>
+                  <Route path='login/github/:token&:email' element={<LoginSuccessful/>}/>
+              </Route>
+            </Routes>
+          </BrowserRouter>
+      </LoginContextProvider>
+  )
 }
 
 export default App;
