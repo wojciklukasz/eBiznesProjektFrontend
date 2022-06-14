@@ -14,23 +14,22 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+      uses: docker/setup-buildx-action@v2
 
-    - name: Log in to registry
-      uses: docker/login-action@v1
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
       with:
-        registry: https://index.docker.io/v1/
         username: ${{ secrets.AzureAppService_ContainerUsername_1636478463d341a3a6d8bd0aad91ab4c }}
         password: ${{ secrets.AzureAppService_ContainerPassword_804827a4f516464c823ca1978d15edb2 }}
 
     - name: Build and push container image to registry
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1636478463d341a3a6d8bd0aad91ab4c }}/wojciklukasz/ebiznesfrontend:${{ github.sha }}
+        tags: ${{ secrets.AzureAppService_ContainerUsername_1636478463d341a3a6d8bd0aad91ab4c }}/ebiznesfrontend:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +47,4 @@ jobs:
         app-name: 'ebiznesprojekt'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_80b10d15f13047e49408c05d17f8e364 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1636478463d341a3a6d8bd0aad91ab4c }}/wojciklukasz/ebiznesfrontend:${{ github.sha }}'
+        images: '${{ secrets.AzureAppService_ContainerUsername_1636478463d341a3a6d8bd0aad91ab4c }}/ebiznesfrontend:${{ github.sha }}'
