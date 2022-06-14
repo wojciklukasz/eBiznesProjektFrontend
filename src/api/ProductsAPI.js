@@ -1,5 +1,6 @@
 export const fetchProducts = async() => {
-    return fetch('https://ebiznesprojektbackend.azurewebsites.net/api/v1/product')
+    // TO DO: CHANGE WHEN DEPLOYING
+    return fetch('http://localhost:3051/api/v1/product')
         .then(response => response.json());
 }
 

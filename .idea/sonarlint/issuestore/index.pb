@@ -17,5 +17,3 @@ F
 src/hooks/useBasket.js,7/b/7b41dc062a25fcc4449d7f8d3ec2bbbd5b42483d
 K
 src/contexts/ShopContext.js,e/1/e1c8c256ea4de481f3ca7148def08e523aa57b89
-K
-src/components/LoginPage.js,2/5/25e7171b014d7ff86cbc7fdffb1e1a32848e4e63
