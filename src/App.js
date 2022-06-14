@@ -9,6 +9,9 @@ import {LogoutPage} from "./components/LogoutPage";
 import {ShopContextProvider} from "./contexts/ShopContext";
 import {Products} from "./components/Products";
 import {Basket} from "./components/Basket";
+import {ProductDetails} from "./components/ProductDetails";
+import {CategoryDetails} from "./components/CategoryDetails";
+import {ManufacturerDetails} from "./components/ManufacturerDetails";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
                       <Route path='login' element={<LoginPage/>}/>
                       <Route path='logout' element={<LogoutPage/>}/>
                       <Route path='products' element={<Products/>}/>
+                      <Route path='products/:id' element={<ProductDetails/>}/>
+                      <Route path='categories/:id' element={<CategoryDetails/>}/>
+                      <Route path='manufacturers/:id' element={<ManufacturerDetails/>}/>
                       <Route path='basket' element={<Basket/>}/>
                       <Route path='login/google/:token&:email' element={<LoginSuccessful/>}/>
                       <Route path='login/github/:token&:email' element={<LoginSuccessful/>}/>

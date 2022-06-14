@@ -1,11 +1,12 @@
 import React, {useContext} from "react";
 import ShopContextProvider from "../contexts/ShopContext";
+import {NavLink} from "react-router-dom";
 
 export const Products = () => {
     const { products, addProduct, isLoaded } = useContext(ShopContextProvider);
 
     if(isLoaded === false) {
-        return <>Loading...</>
+        return <>Ładowanie...</>
     } else {
         return (
             <>
@@ -14,7 +15,8 @@ export const Products = () => {
                     {products.map((product) => (
                         <li key={product.ID}>
                             <pre>
-                                {product.name} | {product.price} |{" "}
+                                <NavLink to={`${product.ID}`}>{product.name}</NavLink> |
+                                {product.price} |{" "}
                                 <button onClick={() => addProduct(product)}>Dodaj do koszyka</button>
                             </pre>
                         </li>
