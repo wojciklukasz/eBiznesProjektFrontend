@@ -6,7 +6,7 @@ export const LoginPage = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/v1/oauth/google")
+        fetch("https://ebiznesprojektbackend.azurewebsites.net/api/v1/oauth/google")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -17,7 +17,7 @@ export const LoginPage = () => {
                     setIsLoaded(true);
                 }
             )
-        fetch("http://localhost:8000/api/v1/oauth/github")
+        fetch("https://ebiznesprojektbackend.azurewebsites.net/api/v1/oauth/github")
             .then(res => res.json())
             .then(
                 (result) => {
