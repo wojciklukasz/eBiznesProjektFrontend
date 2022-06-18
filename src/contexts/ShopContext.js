@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {fetchProducts} from "../api/ProductsAPI";
-import useBasket from "../hooks/useBasket";
+import useBasket, {getBasketFromStorage} from "../hooks/useBasket";
 
 const defaultValue = {
     products: [],
-    basket: [],
+    basket: getBasketFromStorage(),
     addProduct: () => {return 'a';},
     removeProduct: () => {return 'a';},
     total: Number,
@@ -24,6 +24,7 @@ export const ShopContextProvider = ({children}) => {
         addProduct,
         removeProduct,
         total,
+        setTotal,
         isLoaded
     };
 
@@ -31,11 +32,10 @@ export const ShopContextProvider = ({children}) => {
         fetchProducts()
             .then((p) => {
                 setProducts(p);
-                setBasket([]);
-                setTotal(0);
+                setBasket(getBasketFromStorage);
                 setIsLoaded(true);
             })
-    }, [setBasket, setTotal]);
+    }, [setBasket]);
 
     return (
         <ShopContext.Provider value={providerValue}>{children}</ShopContext.Provider>
