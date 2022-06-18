@@ -1,25 +1,37 @@
 import React, {useContext} from "react";
 import ShopContextProvider from "../contexts/ShopContext";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 export const Basket = () => {
-    const {basket, removeProduct, total} = useContext(ShopContextProvider)
+    const {basket, removeProduct, total, products, isLoaded} = useContext(ShopContextProvider);
 
-    return (
-        <>
-            <pre>   Produkt | Cena</pre>
-            <ul>
-                { basket.map((product) => (
-                    <li key={product.ID}>
-                            <pre>
-                                {product.name} | {product.price} |{" "}
-                                <button onClick={() => removeProduct(product.ID)}>Usuń z koszyka</button>
-                            </pre>
-                    </li>
-                ))}
-            </ul>
-            <pre>   Do zapłaty: {total}</pre>
-            <Link to="/payment/">Do kasy</Link>
-        </>
-    )
+    const renderItems = () => {
+        const basketMap = new Map(basket);
+        const productIDs = Array.from(basketMap.keys());
+        const counts = Array.from(basketMap.values());
+        return productIDs.map((product, index) =>
+            <li key={product}>
+                <pre>
+                    <NavLink to={"/products/" + product}>{products.filter(p => p.ID === parseInt(product))[0].name}</NavLink>
+                    {" "}| {counts[index]} |{" "}
+                    <button onClick={() => removeProduct(product, products)}>Usuń z koszyka</button>
+                </pre>
+            </li>
+        )
+    }
+
+    if(!isLoaded) {
+        return <>Ładowanie...</>
+    } else {
+        return (
+            <>
+                <pre>   Produkt | Ilość</pre>
+                <ul>
+                    {renderItems()}
+                </ul>
+                <pre>   Do zapłaty: {total}</pre>
+                <Link to="/order/">Do kasy</Link>
+            </>
+        );
+    }
 }
