@@ -29,8 +29,10 @@ export const Basket = () => {
                 <ul>
                     {renderItems()}
                 </ul>
-                <pre>   Do zapłaty: {total}</pre>
-                <Link to="/order/">Do kasy</Link>
+                <pre>   Koszt produktów: {total}</pre>
+                {basket.size > 0 ? <pre>   Kosz wysyłki: 14</pre> : ""}
+                {basket.size > 0 ? <pre>   Do zapłaty: {total + 14}</pre> : ""}
+                {basket.size > 0 ? <Link to="/order/">Do kasy</Link> : ""}
             </>
         );
     }
