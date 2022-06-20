@@ -13,6 +13,8 @@ import {ProductDetails} from "./components/ProductDetails";
 import {CategoryDetails} from "./components/CategoryDetails";
 import {ManufacturerDetails} from "./components/ManufacturerDetails";
 import {Order} from "./components/Order";
+import {Payment} from "./components/Payment";
+import {OrderSuccessful} from "./components/OrderSuccessful";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
                       <Route path='manufacturers/:id' element={<ManufacturerDetails/>}/>
                       <Route path='basket' element={<Basket/>}/>
                       <Route path='order' element={<Order/>}/>
+                      <Route path='payment/:orderID' element={<Payment/>}/>
+                      <Route path='success/:orderID' element={<OrderSuccessful/>}/>
                       <Route path='login/google/:token&:email' element={<LoginSuccessful/>}/>
                       <Route path='login/github/:token&:email' element={<LoginSuccessful/>}/>
                   </Route>

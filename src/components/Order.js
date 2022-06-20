@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import loginContext from "../contexts/LoginContext";
 import {validateUserToken} from "../api/UserAPI";
 import ShopContextProvider from "../contexts/ShopContext";
+import {useNavigate} from "react-router-dom";
 
 export const Order = () => {
     const {token, email} = useContext(loginContext);
@@ -17,12 +18,33 @@ export const Order = () => {
     const [ city, setCity ] = useState('');
     const [ phone, setPhone ] = useState('');
 
+    const [error, setError] = useState('');
+
     const {basket} = useContext(ShopContextProvider);
 
-    const handleSubmit = async() => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+
+        if(!/\d\d\d\d\d\d\d\d\d/.test(phone)) {
+            setError('Numer telefonu nie jest poprawny');
+            return;
+        }
+
+        if(!/\d\d-\d\d\d/.test(code)) {
+            setError('Kod pocztowy nie jest poprawny');
+            return;
+        }
+
+        if(!/^\d+[a-zA-Z]?/.test(nr)) {
+            setError('Numer budynku nie jest poprawny');
+            return;
+        }
+
         const items = Object.fromEntries(basket);
         // TO DO: CHANGE BEFORE DEPLOYMENT
-        const res = await fetch("http://localhost:3051/api/v1/order", {
+        fetch("http://localhost:3051/api/v1/order", {
             method: "POST",
             body: JSON.stringify({
                 name: name,
@@ -35,18 +57,12 @@ export const Order = () => {
                 phone: phone,
                 items: items
             })
-        });
-
-        if(res.status === 200) {
-            alert("Zamówienie przyjęte");
-        } else {
-            alert("BŁĄD!");
-        }
+        }).then(res => res.json()).then((res) => {
+            navigate('/payment/' + res.UUID)
+        })
     };
 
     useEffect(() => {
-        console.log(basket);
-
         if(token != null) {
             validateUserToken(token)
                 .then((m) => {
@@ -67,7 +83,7 @@ export const Order = () => {
             setIsValid(false);
             setIsLoaded(true);
         }
-    }, [token, email, basket])
+    }, [token, email])
 
     if(!isLoaded) {
         return <>Ładowanie...</>
@@ -77,7 +93,7 @@ export const Order = () => {
     } else {
         return (
             <>
-                Do zapłaty: {total}<br/><br/>
+                Do zapłaty: {total + 14}<br/><br/>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -130,6 +146,7 @@ export const Order = () => {
                     /><br/><br/>
                     <input type="submit" value="Kontynuuj"/>
                 </form>
+                <h3 className="ErrorMessage">{error}</h3>
             </>
         )
     }
