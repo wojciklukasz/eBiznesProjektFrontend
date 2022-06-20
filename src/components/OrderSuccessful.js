@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {useParams, useSearchParams} from "react-router-dom";
+import ShopContextProvider from "../contexts/ShopContext";
 import loginContext from "../contexts/LoginContext";
-import useBasket from "../hooks/useBasket";
 
 export const OrderSuccessful = () => {
     const [params] = useSearchParams();
@@ -10,7 +10,7 @@ export const OrderSuccessful = () => {
     const param = useParams();
     const email = useContext(loginContext);
     const [isLoaded, setIsLoaded] = useState(false);
-    const {setBasket, setTotal} = useBasket();
+    const {setBasket, setTotal} = useContext(ShopContextProvider);
 
     useEffect(() => {
         if(status === "succeeded") {

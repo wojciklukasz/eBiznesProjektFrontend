@@ -25,6 +25,7 @@ export const ShopContextProvider = ({children}) => {
         removeProduct,
         total,
         setTotal,
+        setBasket,
         isLoaded
     };
 
