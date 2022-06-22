@@ -9,20 +9,20 @@ export const Products = () => {
         return <>Ładowanie...</>
     } else {
         return (
-            <>
-                <pre>   Produkt | Cena</pre>
-                <ul>
+            <div className='products-page'>
+                <pre className='labels'>   Produkt | Cena</pre>
+                <ul className='products-list'>
                     {products.map((product) => (
-                        <li key={product.ID}>
-                            <pre>
-                                <NavLink to={`${product.ID}`}>{product.name}</NavLink> |
-                                {product.price} |{" "}
-                                <button onClick={() => addProduct(product)}>Dodaj do koszyka</button>
+                        <li key={product.ID} className='product'>
+                            <pre className='product-details'>
+                                <NavLink to={`${product.ID}`} className='product-name'>{product.name}</NavLink> |
+                                {" "}<span className='product-price'>{product.price}</span> |{" "}
+                                <button className='add-to-basket' onClick={() => addProduct(product)}>Dodaj do koszyka</button>
                             </pre>
                         </li>
                     ))}
                 </ul>
-            </>
+            </div>
         );
     }
 };

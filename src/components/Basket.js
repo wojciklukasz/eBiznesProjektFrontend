@@ -10,11 +10,12 @@ export const Basket = () => {
         const productIDs = Array.from(basketMap.keys());
         const counts = Array.from(basketMap.values());
         return productIDs.map((product, index) =>
-            <li key={product}>
-                <pre>
-                    <NavLink to={"/products/" + product}>{products.filter(p => p.ID === parseInt(product))[0].name}</NavLink>
-                    {" "}| {counts[index]} |{" "}
-                    <button onClick={() => removeProduct(product, products)}>Usuń z koszyka</button>
+            <li key={product} className='product'>
+                <pre className='product-details'>
+                    <NavLink to={"/products/" + product} className='product-name'>{products.filter(p => p.ID === parseInt(product))[0].name}</NavLink>
+                    {" "}| <span className='product-price'>{products.filter(p => p.ID === parseInt(product))[0].price}</span>
+                    {" "}| x<span className='product-quantity'>{counts[index]}</span> |{" "}
+                    <button className='remove-from-basket' onClick={() => removeProduct(product, products)}>Usuń z koszyka</button>
                 </pre>
             </li>
         )
@@ -24,16 +25,16 @@ export const Basket = () => {
         return <>Ładowanie...</>
     } else {
         return (
-            <>
-                <pre>   Produkt | Ilość</pre>
-                <ul>
+            <div className='basket-page'>
+                <pre className='labels'>   Produkt | Cena | Ilość</pre>
+                <ul className='products-list'>
                     {renderItems()}
                 </ul>
-                <pre>   Koszt produktów: {total}</pre>
-                {basket.size > 0 ? <pre>   Kosz wysyłki: 14</pre> : ""}
-                {basket.size > 0 ? <pre>   Do zapłaty: {total + 14}</pre> : ""}
-                {basket.size > 0 ? <Link to="/order/">Do kasy</Link> : ""}
-            </>
+                <pre className='products-cost'>   Koszt produktów: {total}</pre>
+                {basket.size > 0 ? <pre className='shipping-cost'>   Kosz wysyłki: 14</pre> : ""}
+                {basket.size > 0 ? <pre className='total-cost'>   Do zapłaty: {total + 14}</pre> : ""}
+                {basket.size > 0 ? <Link to="/order">Do kasy</Link> : ""}
+            </div>
         );
     }
 }

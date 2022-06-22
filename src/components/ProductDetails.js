@@ -52,11 +52,11 @@ export const ProductDetails = () => {
         );
     } else {
         return (
-            <div style={{paddingLeft: 10}}>
-                <h1>{product.name}</h1>
-                {product.description}
-                <h3>Kategoria: <NavLink to={`/categories/${product.categoryID}`}>{category.name}</NavLink></h3>
-                <h3>Producent: <NavLink to={`/manufacturers/${product.manufacturerID}`}>{manufacturer.name}</NavLink></h3>
+            <div style={{paddingLeft: 10}} className='product-details-page'>
+                <h1 className='product-name'>{product.name}</h1>
+                <span className='product-description'>{product.description}</span>
+                <h3 className='product-category'>Kategoria: <NavLink to={`/categories/${product.categoryID}`}>{category.name}</NavLink></h3>
+                <h3 className='product-manufacturer'>Producent: <NavLink to={`/manufacturers/${product.manufacturerID}`}>{manufacturer.name}</NavLink></h3>
             </div>
         );
     }
