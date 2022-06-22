@@ -16,6 +16,7 @@ import {Order} from "./components/Order";
 import {Payment} from "./components/Payment";
 import {OrderSuccessful} from "./components/OrderSuccessful";
 import {Categories} from "./components/Categories";
+import {Manufacturers} from "./components/Manufacturers";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                       <Route path='products/:id' element={<ProductDetails/>}/>
                       <Route path='categories' element={<Categories/>}/>
                       <Route path='categories/:id' element={<CategoryDetails/>}/>
+                      <Route path='manufacturers' element={<Manufacturers/>}/>
                       <Route path='manufacturers/:id' element={<ManufacturerDetails/>}/>
                       <Route path='basket' element={<Basket/>}/>
                       <Route path='order' element={<Order/>}/>

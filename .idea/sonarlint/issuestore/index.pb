@@ -3,16 +3,12 @@
 ,.idea/inspectionProfiles/Project_Default.xml,4/9/496a238a6afa168dbaf6efd37bb459331589579c
 <
 src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
-K
-src/api/ManufacturersAPI.js,d/f/dfbc225ccbda75655b76beb6aaa775dc5ecc1bbc
 Q
 !src/components/LoginSuccessful.js,4/9/4992d8803539f98eedcac943e8937a3972e4693d
 L
 src/contexts/LoginContext.js,f/6/f690fc57f5675e4cc4b3f90abe375414a2259e2e
 F
 src/hooks/useBasket.js,7/b/7b41dc062a25fcc4449d7f8d3ec2bbbd5b42483d
-U
-%src/components/ManufacturerDetails.js,f/1/f125c130651a86d75bd12ce831383f19f443f796
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302

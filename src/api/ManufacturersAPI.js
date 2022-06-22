@@ -1,3 +1,9 @@
+export const fetchManufacturers = async() => {
+    // TO DO: CHANGE WHEN DEPLOYING
+    return fetch('http://localhost:3051/api/v1/manufacturer')
+        .then(response => response.json());
+};
+
 export const fetchManufacturer = async(id) => {
     // TO DO: CHANGE WHEN DEPLOYING
     return fetch('http://localhost:3051/api/v1/manufacturer/' + id)

@@ -19,6 +19,7 @@ export const Layout = () => {
                     <Link to="/">Strona główna</Link> |{" "}
                     <Link to="/products">Produkty</Link> |{" "}
                     <Link to="/categories">Kategorie</Link> |{" "}
+                    <Link to="/manufacturers">Producenci</Link> |{" "}
                     <Link to="/basket">Koszyk</Link>
                     <Link to="/logout" style={{float: "right"}}>Wyloguj</Link>
                     <center>Witaj {email}</center>
@@ -41,6 +42,7 @@ export const Layout = () => {
                     <Link to="/">Strona główna</Link> |{" "}
                     <Link to="/products">Produkty</Link> |{" "}
                     <Link to="/categories">Kategorie</Link> |{" "}
+                    <Link to="/manufacturers">Producenci</Link> |{" "}
                     <Link to="/basket">Koszyk</Link>
                     <Link to="/login" style={{float: "right"}}>Logowanie</Link>
                 </nav>

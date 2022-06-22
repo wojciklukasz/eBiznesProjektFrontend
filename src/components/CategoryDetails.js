@@ -16,7 +16,7 @@ export const CategoryDetails = () => {
                 cID = c.ID;
                 setCategory(c);
             })
-        wait(250)
+        wait(350)
             .then(() => {
                 fetchCategoryItems(cID)
                     .then((p) => {
