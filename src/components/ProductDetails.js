@@ -3,7 +3,6 @@ import {fetchProduct} from "../api/ProductsAPI";
 import {NavLink, useParams} from "react-router-dom";
 import {fetchCategory} from "../api/CategoriesAPI";
 import {fetchManufacturer} from "../api/ManufacturersAPI";
-import {wait} from "@testing-library/user-event/dist/utils";
 import ShopContextProvider from "../contexts/ShopContext";
 
 export const ProductDetails = () => {
@@ -22,15 +21,13 @@ export const ProductDetails = () => {
                 cID = p.categoryID;
                 mID = p.manufacturerID;
                 setProduct(p);
-            });
-        wait(250)
+            })
             .then(() => {
             fetchCategory(cID)
                 .then((c) => {
                     setCategory(c);
                 });
-        });
-        wait(250)
+            })
             .then(() => {
                 fetchManufacturer(mID)
                     .then((m) => {

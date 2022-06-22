@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {fetchCategory, fetchCategoryItems} from "../api/CategoriesAPI";
 import {NavLink, useParams} from "react-router-dom";
-import {wait} from "@testing-library/user-event/dist/utils";
 
 export const CategoryDetails = () => {
     const [ category, setCategory ] = useState('');
@@ -16,7 +15,6 @@ export const CategoryDetails = () => {
                 cID = c.ID;
                 setCategory(c);
             })
-        wait(350)
             .then(() => {
                 fetchCategoryItems(cID)
                     .then((p) => {

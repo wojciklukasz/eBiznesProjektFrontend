@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {NavLink, useParams} from "react-router-dom";
-import {wait} from "@testing-library/user-event/dist/utils";
 import {fetchManufacturer, fetchManufacturerItems} from "../api/ManufacturersAPI";
 
 export const ManufacturerDetails = () => {
@@ -16,7 +15,6 @@ export const ManufacturerDetails = () => {
                 mID = m.ID;
                 setManufacturer(m);
             })
-        wait(350)
             .then(() => {
                 fetchManufacturerItems(mID)
                     .then((p) => {
@@ -25,8 +23,8 @@ export const ManufacturerDetails = () => {
                         else
                             setProducts(p);
                         setIsLoaded(true);
-                    })
-            })
+                    });
+            });
     }, [id.id])
 
     if(isLoaded === false) {
