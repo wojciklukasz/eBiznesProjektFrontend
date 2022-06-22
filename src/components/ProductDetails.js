@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {fetchProduct} from "../api/ProductsAPI";
 import {NavLink, useParams} from "react-router-dom";
 import {fetchCategory} from "../api/CategoriesAPI";
 import {fetchManufacturer} from "../api/ManufacturersAPI";
 import {wait} from "@testing-library/user-event/dist/utils";
+import ShopContextProvider from "../contexts/ShopContext";
 
 export const ProductDetails = () => {
     const [ product, setProduct ] = useState('');
@@ -11,6 +12,7 @@ export const ProductDetails = () => {
     const [ manufacturer, setManufacturer ] = useState('');
     const [ isLoaded, setIsLoaded ] = useState(false);
     const id = useParams();
+    const { addProduct } = useContext(ShopContextProvider);
 
     useEffect(() => {
         let cID = 0;
@@ -57,6 +59,7 @@ export const ProductDetails = () => {
                 <span className='product-description'>{product.description}</span>
                 <h3 className='product-category'>Kategoria: <NavLink to={`/categories/${product.categoryID}`}>{category.name}</NavLink></h3>
                 <h3 className='product-manufacturer'>Producent: <NavLink to={`/manufacturers/${product.manufacturerID}`}>{manufacturer.name}</NavLink></h3>
+                <button className='add-to-basket' onClick={() => addProduct(product)}>Dodaj do koszyka</button>
             </div>
         );
     }

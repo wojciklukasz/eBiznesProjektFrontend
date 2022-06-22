@@ -16,7 +16,7 @@ export const ManufacturerDetails = () => {
                 mID = m.ID;
                 setManufacturer(m);
             })
-        wait(250)
+        wait(350)
             .then(() => {
                 fetchManufacturerItems(mID)
                     .then((p) => {
