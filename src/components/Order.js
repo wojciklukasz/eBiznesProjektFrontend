@@ -27,17 +27,17 @@ export const Order = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-        if(!/\d\d\d\d\d\d\d\d\d/.test(phone)) {
+        if(!/^\d{9}$/.test(phone)) {
             setError('Numer telefonu nie jest poprawny');
             return;
         }
 
-        if(!/\d\d-\d\d\d/.test(code)) {
+        if(!/^\d{2}-\d{3}$/.test(code)) {
             setError('Kod pocztowy nie jest poprawny');
             return;
         }
 
-        if(!/^\d+[a-zA-Z]?/.test(nr)) {
+        if(!/^\d+[a-zA-Z]?$/.test(nr)) {
             setError('Numer budynku nie jest poprawny');
             return;
         }
@@ -85,17 +85,19 @@ export const Order = () => {
         }
     }, [token, email])
 
-    if(!isLoaded) {
+    if(basket.size <= 0) {
+        return <div className='empty-basket-message'>Koszyk jest pusty!</div>
+    } else if(!isLoaded) {
         return <>Ładowanie...</>
-    }
-    if(!isValid) {
-        return <><h2>Zaloguj się aby przejść dalej</h2></>
+    } else if(!isValid) {
+        return <><h2 className='login-error-message'>Zaloguj się aby przejść dalej</h2></>
     } else {
         return (
-            <>
-                Do zapłaty: {total + 14}<br/><br/>
-                <form onSubmit={handleSubmit}>
+            <div className='order-page'>
+                Do zapłaty: <span className='total-cost'>{total + 14}</span><br/><br/>
+                <form onSubmit={handleSubmit} className='input-form'>
                     <input
+                        className='name'
                         type="text"
                         value={name}
                         placeholder="Imię"
@@ -103,6 +105,7 @@ export const Order = () => {
                         required
                     /><br/>
                     <input
+                        className='surname'
                         type="text"
                         value={surname}
                         placeholder="Nazwisko"
@@ -110,6 +113,7 @@ export const Order = () => {
                         required
                     /><br/>
                     <input
+                        className='road'
                         type="text"
                         value={road}
                         placeholder="Ulica"
@@ -117,6 +121,7 @@ export const Order = () => {
                         required
                     /><br/>
                     <input
+                        className='nr'
                         type="text"
                         value={nr}
                         placeholder="Numer budynku"
@@ -124,6 +129,7 @@ export const Order = () => {
                         required
                     /><br/>
                     <input
+                        className='code'
                         type="text"
                         value={code}
                         placeholder="Kod pocztowy"
@@ -131,6 +137,7 @@ export const Order = () => {
                         required
                     /><br/>
                     <input
+                        className='city'
                         type="text"
                         value={city}
                         placeholder="Miasto"
@@ -138,16 +145,17 @@ export const Order = () => {
                         required
                     /><br/>
                     <input
+                        className='phone'
                         type="text"
                         value={phone}
                         placeholder="Telefon"
                         onChange={(v) => setPhone(v.target.value)}
                         required
                     /><br/><br/>
-                    <input type="submit" value="Kontynuuj"/>
+                    <input type="submit" value="Kontynuuj" className='submit-button'/>
                 </form>
-                <h3 className="ErrorMessage">{error}</h3>
-            </>
+                <h3 className="error-message">{error}</h3>
+            </div>
         )
     }
 }
