@@ -4,6 +4,19 @@ import loginContext from "../contexts/LoginContext";
 
 export const Layout = () => {
     const {token, email} = useContext(loginContext);
+
+    const renderLinks = () => {
+        return (
+            <>
+                <Link to="/">Strona główna</Link> |{" "}
+                <Link to="/products">Produkty</Link> |{" "}
+                <Link to="/categories">Kategorie</Link> |{" "}
+                <Link to="/manufacturers">Producenci</Link> |{" "}
+                <Link to="/basket">Koszyk</Link>
+            </>
+        );
+    }
+
     if(token !== null) {
         return (
             <>
@@ -16,11 +29,7 @@ export const Layout = () => {
                          paddingTop: "1rem",
                      }}
                 >
-                    <Link to="/">Strona główna</Link> |{" "}
-                    <Link to="/products">Produkty</Link> |{" "}
-                    <Link to="/categories">Kategorie</Link> |{" "}
-                    <Link to="/manufacturers">Producenci</Link> |{" "}
-                    <Link to="/basket">Koszyk</Link>
+                    {renderLinks()}
                     <Link to="/logout" style={{float: "right"}}>Wyloguj</Link>
                     <center>Witaj {email}</center>
                 </nav>
@@ -39,11 +48,7 @@ export const Layout = () => {
                          paddingTop: "1rem",
                      }}
                 >
-                    <Link to="/">Strona główna</Link> |{" "}
-                    <Link to="/products">Produkty</Link> |{" "}
-                    <Link to="/categories">Kategorie</Link> |{" "}
-                    <Link to="/manufacturers">Producenci</Link> |{" "}
-                    <Link to="/basket">Koszyk</Link>
+                    {renderLinks()}
                     <Link to="/login" style={{float: "right"}}>Logowanie</Link>
                 </nav>
                 <Outlet/>

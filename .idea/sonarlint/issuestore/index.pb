@@ -18,5 +18,3 @@ A
 package-lock.json,f/a/fa288d1472d29beccb489a676f68739ad365fc47
 K
 src/components/LoginPage.js,2/5/25e7171b014d7ff86cbc7fdffb1e1a32848e4e63
-G
-src/components/Order.js,1/7/17441033d796871a7387e40b6adcbfd64824f1bf
