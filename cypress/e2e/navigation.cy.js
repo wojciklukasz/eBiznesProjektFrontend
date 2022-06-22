@@ -13,6 +13,16 @@ describe('Navigation test', () => {
         cy.url().should('eq', 'http://localhost:3000/products')
     })
 
+    it('Clicks on Kategorie hyperlink', () => {
+        cy.get('[href="/categories"]').click()
+        cy.url().should('eq', 'http://localhost:3000/categories')
+    })
+
+    it('Clicks on Producenci hyperlink', () => {
+        cy.get('[href="/manufacturers"]').click()
+        cy.url().should('eq', 'http://localhost:3000/manufacturers')
+    })
+
     it('Clicks on Koszyk hyperlink', () => {
         cy.get('[href="/basket"]').click()
         cy.url().should('eq', 'http://localhost:3000/basket')
