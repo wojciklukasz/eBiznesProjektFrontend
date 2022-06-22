@@ -11,11 +11,11 @@ export const Manufacturers = () => {
             .then((c) => {
                 setManufacturers(c);
                 setIsLoaded(true);
-            })
+            });
     }, [])
 
     if(!isLoaded) {
-        return <>Ładowanie...</>
+        return <>Ładowanie...</>;
     } else {
         return (
             <div className='manufacturers-page'>
@@ -30,6 +30,6 @@ export const Manufacturers = () => {
                     ))}
                 </ul>
             </div>
-        )
+        );
     }
 };

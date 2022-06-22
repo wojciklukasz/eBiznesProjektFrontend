@@ -11,11 +11,11 @@ export const Categories = () => {
             .then((c) => {
                 setCategories(c);
                 setIsLoaded(true);
-            })
-    }, [])
+            });
+    }, []);
 
     if(!isLoaded) {
-        return <>Ładowanie...</>
+        return <>Ładowanie...</>;
     } else {
         return (
             <div className='categories-page'>
@@ -30,6 +30,6 @@ export const Categories = () => {
                     ))}
                 </ul>
             </div>
-        )
+        );
     }
 };
