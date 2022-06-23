@@ -9,6 +9,6 @@ export const fetchCategory = async(id) => {
 };
 
 export const fetchCategoryItems = async(id) => {
-    return fetch('https://https://ebiznesprojektbackend.azurewebsites.net/api/v1/category/' + id + '/all')
+    return fetch('https://ebiznesprojektbackend.azurewebsites.net/api/v1/category/' + id + '/all')
         .then(response => response.json());
 };
