@@ -48,10 +48,10 @@ describe('Check adding to basket with single product', () => {
 })
 
 describe('Add multiple products to basket', () => {
-    it('Adds Lipton 2 times', () => {
+    it('Adds Nissan 2 times', () => {
         cy.visit('http://localhost:3000/products')
-        cy.get(':nth-child(1) > .product-details > .add-to-basket').click()
-        cy.get(':nth-child(1) > .product-details > .add-to-basket').click()
+        cy.get(':nth-child(2) > .product-details > .add-to-basket').click()
+        cy.get(':nth-child(2) > .product-details > .add-to-basket').click()
     })
 
     it('Adds Romet Gazela', () => {
@@ -68,8 +68,8 @@ describe('Add multiple products to basket', () => {
     })
 
     it('Checks if cost is correct', () => {
-        cy.get('.products-cost').should('contain', '1880')
-        cy.get('.total-cost').should('contain', '1894')
+        cy.get('.products-cost').should('contain', '143850')
+        cy.get('.total-cost').should('contain', '143864')
     })
 })
 

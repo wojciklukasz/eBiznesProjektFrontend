@@ -7,27 +7,15 @@ Q
 !src/components/LoginSuccessful.js,4/9/4992d8803539f98eedcac943e8937a3972e4693d
 L
 src/contexts/LoginContext.js,f/6/f690fc57f5675e4cc4b3f90abe375414a2259e2e
-K
-src/components/LoginPage.js,2/5/25e7171b014d7ff86cbc7fdffb1e1a32848e4e63
-H
-src/api/CategoriesAPI.js,0/2/0292e33be4812a6b5f8f67b9555f4644d0b83e5f
 :
 
 src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
-K
-src/api/ManufacturersAPI.js,d/f/dfbc225ccbda75655b76beb6aaa775dc5ecc1bbc
-G
-src/components/Order.js,1/7/17441033d796871a7387e40b6adcbfd64824f1bf
 H
 src/components/Layout.js,f/b/fbb18469061acfdc823bc0add7c17494f4395068
-Q
-!src/components/OrderSuccessful.js,9/7/9792212b7bd1e86ddd8c99a993b1a7888d42a97d
 K
 src/contexts/ShopContext.js,e/1/e1c8c256ea4de481f3ca7148def08e523aa57b89
 H
 src/components/Basket.js,7/f/7f0a79c6e4f324f68436a11143a5936ef8df0f89
-F
-src/api/ProductsAPI.js,f/9/f92652dd83361c4a7d721ff9d9c95d4040037731
 P
  src/components/ProductDetails.js,9/5/9586d98adc7d6d5075c9223ebaffe9457864f583
 F
@@ -42,5 +30,3 @@ O
 src/components/Manufacturers.js,5/4/54d1f4aa4b641ed515ac3e08143616fe7f90976a
 L
 cypress/e2e/navigation.cy.js,6/b/6b90448fdfe9070e7a044af6fe98550740a35f7c
-G
-cypress/e2e/order.cy.js,0/b/0b2c9d318132114b466eaa5433a03ba8199148aa

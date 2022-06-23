@@ -27,9 +27,9 @@ describe('Create successful order', () => {
     it('Simulates oAuth login', () => {
         cy.visit('http://localhost:3000')
         cy.login()
-        cy.wait(300)
+        cy.wait(350)
         cy.reload()
-        cy.wait(300)
+        cy.wait(350)
     })
 
     it('Adds product to a basket', () => {
@@ -73,7 +73,7 @@ describe('Create successful order', () => {
 
 describe('Check if value errors in form work', () => {
     it('Simulates oAuth login', () => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3000/basket')
         cy.login()
         cy.wait(300)
         cy.reload()
@@ -82,7 +82,7 @@ describe('Check if value errors in form work', () => {
 
     it('Adds product to a basket', () => {
         cy.get('[href="/products"]').click()
-        cy.get(':nth-child(1) > .product-details > .add-to-basket').click()
+        cy.get(':nth-child(2) > .product-details > .add-to-basket').click()
         cy.get('[href="/basket"]').click()
     })
 
@@ -102,12 +102,12 @@ describe('Check if value errors in form work', () => {
 
     it('Fills out fields without errors', () => {
         cy.get('.name').type('Adam')
-        cy.get('.surname').type('Nowak')
-        cy.get('.road').type('Nowakowska')
+        cy.get('.surname').type('Zly')
+        cy.get('.road').type('Nowakowskiego')
         cy.get('.nr').type('12b')
-        cy.get('.code').type('30-333')
-        cy.get('.city').type('Nibylandia')
-        cy.get('.phone').type('123456789')
+        cy.get('.code').type('30-444')
+        cy.get('.city').type('Nibybyt')
+        cy.get('.phone').type('987654321')
     })
 
     it('Tries to submit invalid building number', () => {
