@@ -53,7 +53,7 @@ export const PaymentCheckoutForm = () => {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: "http://localhost:3000/success/" + param.orderID,
+                return_url: "https://ebiznesprojekt.azurewebsites.net/success/" + param.orderID,
             },
         });
 
