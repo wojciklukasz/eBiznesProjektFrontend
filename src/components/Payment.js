@@ -11,8 +11,7 @@ export const Payment = () => {
     const param = useParams()
 
     useEffect(() => {
-        // TO DO: CHANGE WHEN DEPLOYING
-        fetch('http://localhost:3051/api/v1/payment/' + param.orderID, {
+        fetch('https://ebiznesprojektbackend.azurewebsites.net/api/v1/payment/' + param.orderID, {
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify({"orderID": param.orderID})

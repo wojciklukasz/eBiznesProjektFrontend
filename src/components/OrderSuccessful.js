@@ -14,8 +14,7 @@ export const OrderSuccessful = () => {
 
     useEffect(() => {
         if(status === "succeeded") {
-            // TO DO: CHANGE WHEN DEPLOYING
-            fetch('http://localhost:3051/api/v1/order/' + param.orderID + "/" + paymentId + "/" + email.email, {
+            fetch('https://ebiznesprojektbackend.azurewebsites.net/api/v1/order/' + param.orderID + "/" + paymentId + "/" + email.email, {
                 method: "POST",
             })
                 .then((res) => res.json())

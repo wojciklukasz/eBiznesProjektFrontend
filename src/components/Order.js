@@ -43,8 +43,7 @@ export const Order = () => {
         }
 
         const items = Object.fromEntries(basket);
-        // TO DO: CHANGE BEFORE DEPLOYMENT
-        fetch("http://localhost:3051/api/v1/order", {
+        fetch("https://ebiznesprojektbackend.azurewebsites.net/api/v1/order", {
             method: "POST",
             body: JSON.stringify({
                 name: name,
