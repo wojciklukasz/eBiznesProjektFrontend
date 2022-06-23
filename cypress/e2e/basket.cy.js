@@ -1,6 +1,9 @@
 describe('Page load test', () => {
-    it('Checks if basket page loads correctly', () => {
+    it('visits basket page', () => {
         cy.visit('http://localhost:3000/basket')
+    })
+
+    it('Checks if basket page is loaded correctly', () => {
         cy.contains('Produkt')
         cy.contains('Ilość')
         cy.get('nav').should('exist')

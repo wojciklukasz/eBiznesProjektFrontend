@@ -1,6 +1,9 @@
 describe('Page load test', () => {
-    it('Checks if products page loads correctly', () => {
+    it('Visits products page', () => {
         cy.visit('http://localhost:3000/products')
+    })
+
+    it('Checks if products page loads correctly', () => {
         cy.contains('Produkt')
         cy.contains('Cena')
         cy.get('nav').should('exist')

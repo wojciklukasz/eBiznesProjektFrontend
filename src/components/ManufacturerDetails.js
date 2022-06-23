@@ -31,17 +31,17 @@ export const ManufacturerDetails = () => {
         return <>Ładowanie...</>
     } else {
         return (
-            <div style={{paddingLeft: 10}}>
-                <h1>{manufacturer.name}</h1>
-                {manufacturer.description}
+            <div style={{paddingLeft: 10}} className='manufacturer-details-page'>
+                <h1 className='manufacturer-name'>{manufacturer.name}</h1>
+                <span className='manufacturer-description'>{manufacturer.description}</span>
                 <br/>
                 <br/>
                 <pre>Produkty od tego producenta</pre>
-                <ul>
+                <ul className='products-from-manufacturer-list'>
                     {products.map((product) => (
-                        <li key={product.ID}>
+                        <li key={product.ID} className='product'>
                             <pre>
-                                <NavLink to={`/products/${product.ID}`}>{product.name}</NavLink>
+                                <NavLink to={`/products/${product.ID}`} className='product-name'>{product.name}</NavLink>
                             </pre>
                         </li>
                     ))}

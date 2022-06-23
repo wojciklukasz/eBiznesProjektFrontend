@@ -31,17 +31,17 @@ export const CategoryDetails = () => {
         return <>Ładowanie...</>
     } else {
         return (
-            <div style={{paddingLeft: 10}}>
-                <h1>{category.name}</h1>
-                {category.description}
+            <div style={{paddingLeft: 10}} className='category-details-page'>
+                <h1 className='category-name'>{category.name}</h1>
+                <span className='category-description'>{category.description}</span>
                 <br/>
                 <br/>
                 <pre>Produkty w tej kategorii</pre>
-                <ul>
+                <ul className='products-in-category-list'>
                     {products.map((product) => (
-                        <li key={product.ID}>
+                        <li key={product.ID} className='product'>
                             <pre>
-                                <NavLink to={`/products/${product.ID}`}>{product.name}</NavLink>
+                                <NavLink to={`/products/${product.ID}`} className='product-name'>{product.name}</NavLink>
                             </pre>
                         </li>
                     ))}
