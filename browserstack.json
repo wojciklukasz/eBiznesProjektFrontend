@@ -1,7 +1,7 @@
 {
     "auth": {
-        "username": "",
-        "access_key": ""
+        "username": "wojciklukasz_TwyHO6",
+        "access_key": "DNJMwFUrmymbUT2kxR91"
     },
     "browsers": [
         {
@@ -20,16 +20,15 @@
         }
     ],
     "run_settings": {
-        "cypress_version": "10.1",
-        "cypress_config_file": "cypress.config.js",
+        "cypress_version": "9.6.1",
+        "cypress_config_file": "cypress.json",
         "project_name": "Projekt",
         "build_name": "ProjektDev",
         "exclude": [],
-        "parallels": 4,
+        "parallels": "4",
         "npm_dependencies": {},
         "package_config_options": {},
-        "headless": true,
-        "specs": ["cypress/e2e/*"]
+        "headless": true
     },
     "connection_settings": {
         "local": true,
