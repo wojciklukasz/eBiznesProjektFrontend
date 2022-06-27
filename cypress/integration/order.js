@@ -66,6 +66,7 @@ describe('Create successful order', () => {
 
     it('Checks if card form loads correctly', () => {
         cy.get('.submit-button').click()
+        cy.wait(5000)
         cy.get('.__PrivateStripeElement > iframe').should('exist')
         cy.get('#submit').should('exist')
     })

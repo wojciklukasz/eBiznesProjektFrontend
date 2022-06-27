@@ -1,0 +1,8 @@
+# cypress
+cypress*
+/cypress
+*.log
+
+# browserstack
+browserstack*
+/results

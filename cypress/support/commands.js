@@ -23,8 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add('login', () => {
+Cypress.Commands.add("login", () => {
     localStorage.setItem('email', 'test@test.com')
     localStorage.setItem('token', 'test')
     expect(localStorage.getItem('email')).eq('test@test.com')

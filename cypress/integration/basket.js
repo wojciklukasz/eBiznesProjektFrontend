@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 describe('Page load test', () => {
     it('visits basket page', () => {
         cy.visit('http://localhost:3000/basket')
@@ -28,10 +29,13 @@ describe('Check adding to basket with single product', () => {
     it('Adds Lipton to basket', () => {
         cy.visit('http://localhost:3000/products')
         cy.get(':nth-child(1) > .product-details > .add-to-basket').click()
+        cy.wait(300)
     })
 
     it('Checks if Lipton has been added to the basket', () => {
+        cy.wait(300)
         cy.get('[href="/basket"]').click()
+        cy.wait(300)
         cy.get('.product-name').should('contain', 'Lipton Yellow Label')
     })
 
