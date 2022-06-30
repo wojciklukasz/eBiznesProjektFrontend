@@ -1,5 +1,10 @@
 # eBiznesProjektFrontend
 
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=wojciklukasz_eBiznesProjektFrontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=wojciklukasz_eBiznesProjektFrontend)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=wojciklukasz_eBiznesProjektFrontend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=wojciklukasz_eBiznesProjektFrontend)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=wojciklukasz_eBiznesProjektFrontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=wojciklukasz_eBiznesProjektFrontend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wojciklukasz_eBiznesProjektFrontend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wojciklukasz_eBiznesProjektFrontend)
+
 Cypress: https://dashboard.cypress.io/projects/fj84q2/runs/3/overview
 
 Browserstack:
