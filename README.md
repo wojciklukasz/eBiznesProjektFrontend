@@ -1,4 +1,4 @@
-# Online shop frontend final procject of "eBiznes" course at Jagiellonian Universisty
+# Online shop frontend for final project of "eBiznes" course at Jagiellonian Universisty
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=wojciklukasz_eBiznesProjektFrontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=wojciklukasz_eBiznesProjektFrontend)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=wojciklukasz_eBiznesProjektFrontend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=wojciklukasz_eBiznesProjektFrontend)
